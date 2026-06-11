@@ -1,0 +1,23 @@
+MathTwin/
+│
+├── core_c/                      # Your main C directory
+│   └── MathEngine/              # Created by Code::Blocks
+│       ├── MathEngine.cbp       # Your Code::Blocks project file
+│       │
+│       ├── src/                 # Create this inside MathEngine
+│       │   ├── matrix.c
+│       │   └── calculus.c
+│       │
+│       └── include/             # Create this inside MathEngine
+│           ├── matrix.h
+│           └── calculus.h
+|
+├── interface_py/            # All Python files go here
+│   ├── main.py              # App entry point
+│   ├── gui.py               # PyQt6 layout and windows
+│   ├── plotter.py           # Real-time graphing logic
+│   └── c_bridge.py          # Wrapper to load the C .dll
+│
+├── build/                   # Compiled C binaries (.dll)
+├── README.md                # Project documentation
+└── requirements.txt         # Python dependencies

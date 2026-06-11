@@ -1,0 +1,24 @@
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables and secrets
+.env
+
+# Code editor configurations (optional but helpful)
+.vscode/
+.idea/
+
+# Log files
+*.log

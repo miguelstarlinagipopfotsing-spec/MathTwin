@@ -1,0 +1,13 @@
+main.py
+│
+├── analyze_function.py
+│      (calculs SymPy)
+│
+├── gui.py
+│      (interface)
+│
+├── plotter.py
+│      (PyQtGraph)
+│
+└── utils/
+       └── latex_renderer.py
