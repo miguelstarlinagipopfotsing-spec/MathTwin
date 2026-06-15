@@ -44,10 +44,10 @@ def analyze_function(user_input, max_x):
                 singularities = sp.solve(denom, x)
                 ext_points = []
                 for sing in singularities:
-                    if sing.is_Real:
+                    if sing.is_real:
                         try:
                             lim_values = sp.limit(expr, x, sing)
-                            if lim_values.is_Real:
+                            if lim_values.is_real:
                                 ext_points.append(f"x = {sp.latex(sing)} \\Rightarrow y = {sp.latex(lim_values)}")
                         except:
                             continue
@@ -71,7 +71,7 @@ def analyze_function(user_input, max_x):
                 print("Roots =", roots)
                 for r in roots:
                     print("r =", r)
-                    if r.is_Real:
+                    if r.is_real:
                         left_lim = sp.limit(expr, x, r, dir='-')
                         right_lim = sp.limit(expr, x, r, dir='+')
                         if left_lim in (sp.oo, -sp.oo) or right_lim in (sp.oo, -sp.oo):
@@ -79,20 +79,20 @@ def analyze_function(user_input, max_x):
                             v_asymptotes_nums.append(float(r))
 
             lim_inf_pos = sp.limit(expr, x, sp.oo)
-            if lim_inf_pos.is_Real:
+            if lim_inf_pos.is_real:
                 asymptotes_list.append(f"y = {sp.latex(lim_inf_pos)}")
                 h_asymptotes_nums.append(float(lim_inf_pos))
 
             for direction in [sp.oo, -sp.oo]:
                 a_lim = sp.limit(expr / x, x, direction)
-                if a_lim.is_Real and a_lim != 0:
+                if a_lim.is_real and a_lim != 0:
                     b_lim = sp.limit(expr - a_lim * x, x, direction)
-                    if b_lim.is_Real:
+                    if b_lim.is_real:
                         asymptotes_list.append(f"y = {sp.latex(a_lim * x + b_lim)}")
                         oblique_asymptotes.append((float(a_lim), float(b_lim)))
 
             lim_inf_neg = sp.limit(expr, x, -sp.oo)
-            if lim_inf_neg.is_Real and lim_inf_neg != lim_inf_pos:
+            if lim_inf_neg.is_real and lim_inf_neg != lim_inf_pos:
                 asymptotes_list.append(f"y = {sp.latex(lim_inf_neg)}")
                 h_asymptotes_nums.append(float(lim_inf_neg))
         except:
@@ -143,7 +143,7 @@ def analyze_function(user_input, max_x):
         y_data[np.isinf(y_data)] = np.nan
 
         # Nettoyage des sauts d'asymptotes verticales
-        jump_threshold = 1000
+        jump_threshold = 100
         for i in range(1, len(y_data)):
             if not np.isnan(y_data[i]) and not np.isnan(y_data[i-1]):
                 if abs(y_data[i] - y_data[i-1]) > jump_threshold:
